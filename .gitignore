@@ -1,0 +1,14 @@
+# ignore these files and folders
+
+
+# ignore all bd sources except .bd file itself
+*/bd/*/*
+!*/bd/*/*.bd
+
+# ignore all vivado folders except vivado project
+*/vivado/*
+!*/vivado/*.xpr
+
+# ignore all python IDE files
+*/python/.idea
+*/python/__pycache__
