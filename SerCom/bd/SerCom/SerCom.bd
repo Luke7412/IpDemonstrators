@@ -14,13 +14,11 @@
       "axi_crossbar_0": "",
       "Identifier_0": "",
       "uart": {
-        "axis_data_fifo_0": "",
-        "axis_data_fifo_1": "",
         "DestPacketizer_0": "",
         "Framing_0": "",
-        "AxisUart_0": "",
         "axi_mm2s_mapper_0": "",
-        "axi_protocol_convert_0": ""
+        "axi_protocol_convert_0": "",
+        "AxisUart_0": ""
       },
       "Regbank_0": ""
     },
@@ -102,8 +100,26 @@
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "SerCom_clk_wiz_0_0",
         "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "130.958"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "98.575"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "100"
+          },
           "CLK_IN1_BOARD_INTERFACE": {
             "value": "sys_clock"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "10.000"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "1"
           },
           "RESET_BOARD_INTERFACE": {
             "value": "reset"
@@ -158,24 +174,6 @@
           }
         },
         "components": {
-          "axis_data_fifo_0": {
-            "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
-            "xci_name": "SerCom_axis_data_fifo_0_0",
-            "parameters": {
-              "FIFO_DEPTH": {
-                "value": "32"
-              }
-            }
-          },
-          "axis_data_fifo_1": {
-            "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
-            "xci_name": "SerCom_axis_data_fifo_1_0",
-            "parameters": {
-              "FIFO_DEPTH": {
-                "value": "32"
-              }
-            }
-          },
           "DestPacketizer_0": {
             "vlnv": "lvin:Axi4Stream:DestPacketizer:v1_0",
             "xci_name": "SerCom_DestPacketizer_0_0"
@@ -183,15 +181,6 @@
           "Framing_0": {
             "vlnv": "lvin:Axi4Stream:Framing:v1_0",
             "xci_name": "SerCom_Framing_0_0"
-          },
-          "AxisUart_0": {
-            "vlnv": "lvin:Interfaces:AxisUart:v1_0",
-            "xci_name": "SerCom_AxisUart_0_0",
-            "parameters": {
-              "g_AClkFrequency": {
-                "value": "100000000"
-              }
-            }
           },
           "axi_mm2s_mapper_0": {
             "vlnv": "xilinx.com:ip:axi_mm2s_mapper:1.1",
@@ -205,43 +194,23 @@
           "axi_protocol_convert_0": {
             "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
             "xci_name": "SerCom_axi_protocol_convert_0_0"
+          },
+          "AxisUart_0": {
+            "vlnv": "lvin:Interfaces:AxisUart:v1_0",
+            "xci_name": "SerCom_AxisUart_0_1"
           }
         },
         "interface_nets": {
-          "Conn1": {
-            "interface_ports": [
-              "M_AXI",
-              "axi_protocol_convert_0/M_AXI"
-            ]
-          },
-          "AxisUart_0_Uart": {
-            "interface_ports": [
-              "Uart",
-              "AxisUart_0/Uart"
-            ]
-          },
-          "Framing_0_TxByte": {
-            "interface_ports": [
-              "axis_data_fifo_0/S_AXIS",
-              "Framing_0/TxByte"
-            ]
-          },
           "axi_mm2s_mapper_0_M_AXIS": {
             "interface_ports": [
               "DestPacketizer_0/TxPacket",
               "axi_mm2s_mapper_0/M_AXIS"
             ]
           },
-          "axis_data_fifo_0_M_AXIS": {
+          "Conn1": {
             "interface_ports": [
-              "axis_data_fifo_0/M_AXIS",
-              "AxisUart_0/TxByte"
-            ]
-          },
-          "AxisUart_0_RxByte": {
-            "interface_ports": [
-              "axis_data_fifo_1/S_AXIS",
-              "AxisUart_0/RxByte"
+              "M_AXI",
+              "axi_protocol_convert_0/M_AXI"
             ]
           },
           "Framing_0_RxFrame": {
@@ -250,10 +219,10 @@
               "DestPacketizer_0/RxFrame"
             ]
           },
-          "axis_data_fifo_1_M_AXIS": {
+          "axi_mm2s_mapper_0_M_AXI": {
             "interface_ports": [
-              "axis_data_fifo_1/M_AXIS",
-              "Framing_0/RxByte"
+              "axi_mm2s_mapper_0/M_AXI",
+              "axi_protocol_convert_0/S_AXI"
             ]
           },
           "DestPacketizer_0_RxPacket": {
@@ -262,16 +231,28 @@
               "axi_mm2s_mapper_0/S_AXIS"
             ]
           },
+          "AxisUart_0_Uart": {
+            "interface_ports": [
+              "Uart",
+              "AxisUart_0/Uart"
+            ]
+          },
           "DestPacketizer_0_TxFrame": {
             "interface_ports": [
               "Framing_0/TxFrame",
               "DestPacketizer_0/TxFrame"
             ]
           },
-          "axi_mm2s_mapper_0_M_AXI": {
+          "AxisUart_0_RxByte": {
             "interface_ports": [
-              "axi_mm2s_mapper_0/M_AXI",
-              "axi_protocol_convert_0/S_AXI"
+              "AxisUart_0/RxByte",
+              "Framing_0/RxByte"
+            ]
+          },
+          "Framing_0_TxByte": {
+            "interface_ports": [
+              "AxisUart_0/TxByte",
+              "Framing_0/TxByte"
             ]
           }
         },
@@ -279,25 +260,21 @@
           "proc_sys_reset_0_peripheral_aresetn": {
             "ports": [
               "AResetn",
-              "AxisUart_0/AResetn",
               "Framing_0/AResetn",
               "DestPacketizer_0/AResetn",
               "axi_mm2s_mapper_0/aresetn",
-              "axis_data_fifo_1/s_axis_aresetn",
-              "axis_data_fifo_0/s_axis_aresetn",
-              "axi_protocol_convert_0/aresetn"
+              "axi_protocol_convert_0/aresetn",
+              "AxisUart_0/AResetn"
             ]
           },
           "clk_wiz_0_clk_out1": {
             "ports": [
               "AClk",
-              "AxisUart_0/AClk",
               "Framing_0/AClk",
               "DestPacketizer_0/AClk",
               "axi_mm2s_mapper_0/aclk",
-              "axis_data_fifo_1/s_axis_aclk",
-              "axis_data_fifo_0/s_axis_aclk",
-              "axi_protocol_convert_0/aclk"
+              "axi_protocol_convert_0/aclk",
+              "AxisUart_0/AClk"
             ]
           }
         }
@@ -548,28 +525,28 @@
       }
     },
     "interface_nets": {
-      "AxisUart_0_Uart": {
-        "interface_ports": [
-          "Uart",
-          "uart/Uart"
-        ]
-      },
       "axi_crossbar_0_M01_AXI": {
         "interface_ports": [
           "axi_crossbar_0/M01_AXI",
           "Regbank_0/Ctrl"
         ]
       },
-      "uart_M_AXI": {
+      "AxisUart_0_Uart": {
         "interface_ports": [
-          "axi_crossbar_0/S00_AXI",
-          "uart/M_AXI"
+          "Uart",
+          "uart/Uart"
         ]
       },
       "axi_crossbar_0_M00_AXI": {
         "interface_ports": [
           "axi_crossbar_0/M00_AXI",
           "Identifier_0/Ctrl"
+        ]
+      },
+      "uart_M_AXI": {
+        "interface_ports": [
+          "axi_crossbar_0/S00_AXI",
+          "uart/M_AXI"
         ]
       }
     },
