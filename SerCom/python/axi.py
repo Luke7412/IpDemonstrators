@@ -133,12 +133,11 @@ class UartMaster(Bus):
         pkt = [packet_id]
         pkt.extend(int2bytes(address, 4))
 
-        val = (self.axi_id & 0x0F) << 21 | (self.axi_lock & 0x01) << 20 | \
+        val = (self.axi_id & 0x01) << 21 | (self.axi_lock & 0x01) << 20 | \
               (length - 1 & 0xFF) << 12 | (self.axi_cache & 0x0F) << 8 | \
               (self.axi_burst & 0x03) << 6 | (self.axi_size & 0x07) << 3 | \
               (self.axi_prot & 0x07) << 0
         # val += qos & 0xF << 25
-        # val += user & 0xF << 29
         pkt.extend(int2bytes(val, 4))
         return pkt
 
@@ -177,9 +176,8 @@ class UartMaster(Bus):
 
         val = bytes2int(data)
         axi_resp = (val >> 0) & 0x3
-        axi_id = (val >> 2) & 0xF
-        axi_user = (val >> 6) & 0xF
-        return axi_resp, axi_id, axi_user
+        axi_id = (val >> 2) & 0x1
+        return axi_resp, axi_id
 
     def unpack_read_response(self, data: List[List[int]]):
         data_bytes = []
