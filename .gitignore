@@ -10,5 +10,4 @@
 !*/vivado/*.xpr
 
 # ignore all python IDE files
-*/python/.idea
-*/python/__pycache__
+/.idea

@@ -5,6 +5,7 @@ from .axi import Bus
 from .module import Module
 
 
+################################################################################
 class Identifier(Module):
     class Registers(IntEnum):
         ModuleId = 0x00

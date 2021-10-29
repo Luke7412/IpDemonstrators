@@ -1,10 +1,11 @@
 
 from abc import ABC, abstractmethod
 
-from modules.axi import Bus, StubBus
+from modules.axi import Bus
 from enum import IntEnum
 
 
+################################################################################
 class Module(ABC):
     @abstractmethod
     class Registers(IntEnum):

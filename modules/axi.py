@@ -4,7 +4,7 @@ from abc import ABC
 from serial import Serial
 
 
-###############################################################################
+################################################################################
 class AddressOutOfRangeException(Exception):
     def __init__(self):
         self.message = f'Address out of range.'
@@ -23,7 +23,7 @@ class AxiResponseError(Exception):
         super().__init__(self.message)
 
 
-###############################################################################
+################################################################################
 def int2bytes(x: int, length) -> List[int]:
     return [x >> i & 0xFF for i in range(0, length*8, 8)]
 
@@ -32,7 +32,7 @@ def bytes2int(x: List[int]) -> int:
     return sum([x[i] << 8 * i for i in range(len(x))])
 
 
-###############################################################################
+################################################################################
 class Bus(ABC):
     def read(self, address: int, length: int) -> List[int]:
         raise NotImplementedError(f'Function "read" not implemented in class "{self.__class__.__name__}"')
@@ -47,7 +47,7 @@ class Bus(ABC):
         raise NotImplementedError(f'Function "write_i32" not implemented in class "{self.__class__.__name__}"')
 
 
-###############################################################################
+################################################################################
 class StubBus(Bus):
     def __init__(self):
         self.memory_map: Dict[int, int] = dict()
@@ -73,7 +73,7 @@ class StubBus(Bus):
         self.write(address, int2bytes(data, 4))
 
 
-###############################################################################
+################################################################################
 class BasicBus(Bus):
     def __init__(self, bus: Bus, offset: int, range: int):
         self.bus = bus
@@ -103,7 +103,7 @@ class BasicBus(Bus):
         return address + self.offset
 
 
-###############################################################################
+################################################################################
 class UartMaster(Bus):
     class PacketId(IntEnum):
         READ_ADDR = 2
@@ -128,7 +128,7 @@ class UartMaster(Bus):
 
         self.bytes_per_beat = 2**self.axi_size
 
-    ###########################################################################
+    ############################################################################
     def make_address_packet(self, packet_id: PacketId, address: int, length: int) -> List[int]:
         pkt = [packet_id]
         pkt.extend(int2bytes(address, 4))
@@ -177,7 +177,7 @@ class UartMaster(Bus):
         val = bytes2int(data)
         axi_resp = (val >> 0) & 0x3
         axi_id = (val >> 2) & 0x1
-        return axi_resp, axi_id
+        return axi_resp
 
     def unpack_read_response(self, data: List[List[int]]):
         data_bytes = []
@@ -194,7 +194,7 @@ class UartMaster(Bus):
             # axi_user = (val >> 6) & 0xF
         return data_bytes, axi_resp
 
-    ###########################################################################
+    ############################################################################
     def add_escape_chars(self, data_bytes: List[int]) -> List[int]:
         new_byte_list = list()
         for data_byte in data_bytes:
@@ -219,7 +219,7 @@ class UartMaster(Bus):
     def add_framing(self, data_bytes: List[int]) -> List[int]:
         return [self.start_byte] + data_bytes + [self.stop_byte]
 
-    ###########################################################################
+    ############################################################################
     def fetch_response(self, nof_packets: int = 1) -> List[List[int]]:
         resp_queue = []
         for i in range(nof_packets):
@@ -279,7 +279,7 @@ class UartMaster(Bus):
         resp_queue = self.start_transaction(pkt_queue)
 
         resp_pkt = resp_queue[0]
-        resp, _, _ = self.unpack_write_response(resp_pkt)
+        resp = self.unpack_write_response(resp_pkt)
         if resp:
             raise AxiResponseError()
 
