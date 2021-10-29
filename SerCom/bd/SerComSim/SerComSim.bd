@@ -13,8 +13,8 @@
       "axi_protocol_convert_1": "",
       "Axi4LiteTransactor_0": "",
       "Regbank_0": "",
-      "AxiUartSlave_0": "",
-      "AxiUartMaster_0": ""
+      "AxiUartMaster_0": "",
+      "AxiUartSlave_0": ""
     },
     "ports": {
       "AClk": {
@@ -268,13 +268,13 @@
           }
         }
       },
-      "AxiUartSlave_0": {
-        "vlnv": "lvin:Interfaces:AxiUartSlave:v1_0",
-        "xci_name": "SerComSim_AxiUartSlave_0_0"
-      },
       "AxiUartMaster_0": {
         "vlnv": "lvin:Interfaces:AxiUartMaster:v1_0",
         "xci_name": "SerComSim_AxiUartMaster_0_0"
+      },
+      "AxiUartSlave_0": {
+        "vlnv": "lvin:Interfaces:AxiUartSlave:v1_0",
+        "xci_name": "SerComSim_AxiUartSlave_0_0"
       }
     },
     "interface_nets": {
@@ -282,12 +282,6 @@
         "interface_ports": [
           "axi_protocol_convert_1/M_AXI",
           "Regbank_0/Ctrl"
-        ]
-      },
-      "Axi4LiteVIP_0_Master": {
-        "interface_ports": [
-          "Axi4LiteVIP_0/Master",
-          "axi_protocol_convert_0/S_AXI"
         ]
       },
       "AxiUartSlave_0_M_AXI": {
@@ -300,6 +294,12 @@
         "interface_ports": [
           "axi_protocol_convert_0/M_AXI",
           "AxiUartMaster_0/S_AXI"
+        ]
+      },
+      "Axi4LiteVIP_0_Master": {
+        "interface_ports": [
+          "Axi4LiteVIP_0/Master",
+          "axi_protocol_convert_0/S_AXI"
         ]
       },
       "AxiUartMaster_0_Uart": {
@@ -317,8 +317,8 @@
           "Axi4LiteVIP_0/AClk",
           "axi_protocol_convert_1/aclk",
           "Regbank_0/AClk",
-          "AxiUartSlave_0/AClk",
-          "AxiUartMaster_0/AClk"
+          "AxiUartMaster_0/AClk",
+          "AxiUartSlave_0/AClk"
         ]
       },
       "AResetn_0_1": {
@@ -328,8 +328,8 @@
           "Axi4LiteVIP_0/AResetn",
           "axi_protocol_convert_1/aresetn",
           "Regbank_0/AResetn",
-          "AxiUartSlave_0/AResetn",
-          "AxiUartMaster_0/AResetn"
+          "AxiUartMaster_0/AResetn",
+          "AxiUartSlave_0/AResetn"
         ]
       }
     },
