@@ -25,7 +25,7 @@ class AxiResponseError(Exception):
 
 ################################################################################
 def int2bytes(x: int, length) -> List[int]:
-    return [x >> i & 0xFF for i in range(0, length*8, 8)]
+    return [x >> 8 * i & 0xFF for i in range(0, length)]
 
 
 def bytes2int(x: List[int]) -> int:

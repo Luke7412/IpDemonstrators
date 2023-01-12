@@ -19,10 +19,15 @@ class Identifier(Module):
         return self.bus.read_i32(self.Registers.ModuleId)
 
     def get_name(self) -> str:
-        return ''.join([chr(x) for x in self.bus.read(self.Registers.Name, 16)])
+        bytes = self.bus.read(self.Registers.Name, 16)
+        quads = [reversed(bytes[4*i:4*(i+1)]) for i in range(4)]
+        bytes = [x for quad in quads for x in quad]
+        bytes = [x for x in bytes if x != 0]
+        return ''.join([chr(x) for x in bytes]).strip()
 
     def get_version(self) -> Tuple[int, int]:
         value = self.bus.read_i32(self.Registers.Version)
         major_version = value >> 16 & 0xFFFF
         minor_version = value >> 0 & 0xFFFF
         return major_version, minor_version
+
