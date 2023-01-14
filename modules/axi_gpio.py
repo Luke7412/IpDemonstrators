@@ -3,27 +3,7 @@ from typing import List
 from .module import Module
 
 
-class AXI_GPIO(Module):
-    """
-        Class to represent AXI_GPIO ip
-
-        This class provides an API for Xilinx's AXI General Purpose IO. (PG144)
-
-        TThe AXI GPIO provides a general purpose input/output interface to the AXI (Advanced eXtensible Interface) interface.
-        See here for more info: https://www.xilinx.com/products/intellectual-property/axi_gpio.html 
-
-        To use this, instantiate this class, and provide a 'bus' object.
-        Typically, this 'bus' object represents a software API to an AXI bus.
-
-        The 'bus' needs to expose the following interface:
-        - bus.read_i32(address: int) -> int
-        - bus.write_i32(address: int, value: int) -> None
-
-        For example: you can pass in a bus object created by driverstack, or you could pass in a generic bus wrapper. (see ip/bus.py : GenericBus)
-
-        TODO: Test in HW - map output pins to LEDs on ZCU106 board
-    """
-
+class AxiGpio(Module):
     class Registers(IntEnum):
         gpio_data =  0x0000     # R/W   | Channel 1 AXI GPIO Data Register
         gpio_tri =   0x0004     # R/W   | Channel 1 AXI GPIO 3-state Control Register

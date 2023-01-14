@@ -7,22 +7,11 @@ from .module import Module
 
 
 ################################################################################
-from enum import Enum
-from collections import namedtuple
-
-Register = namedtuple('Register', ['address', 'writable', 'readable'])
-
-
 class FrequencyCounter(Module):
     class Registers(IntEnum):
         ModuleId = 0x00
         DivSel = 0x04
         Status = 0x08
-
-    # class Registers(Enum):
-    #     ModuleId = Register(address=0x00, writable=True, readable=True)
-    #     DivSel = Register(address=0x04, writable=True, readable=True)
-    #     Status = Register(address=0x08, writable=True, readable=True)
 
     def __init__(self, bus: Bus):
         super().__init__(bus)

@@ -25,10 +25,6 @@ class AxiResponseError(Exception):
 
 
 ################################################################################
-Register = namedtuple('Register', ['address', 'size', 'offset', 'writable', 'readable'])
-
-
-################################################################################
 def int2bytes(x: int, length) -> List[int]:
     return [x >> 8 * i & 0xFF for i in range(0, length)]
 
@@ -86,35 +82,6 @@ class BasicBus(Bus):
         self.range = range
 
     def read(self, address: int, length: int) -> List[int]:
-        self.check_transaction(address, length)
-        data = self.bus.read(self.update_address(address), length)
-        return data
-
-    def write(self, address: int, data: List[int]) -> None:
-        self.check_transaction(address, len(data))
-        self.bus.write(self.update_address(address), data)
-
-    def read_i32(self, address: int) -> int:
-        return bytes2int(self.read(address, 4))
-
-    def write_i32(self, address: int, data: int) -> None:
-        self.write(address, int2bytes(data, 4))
-
-    def check_transaction(self, address: int, length: int) -> None:
-        if not 0 <= address and address + length < self.range:
-            raise AddressOutOfRangeException()
-
-    def update_address(self, address: int) -> int:
-        return address + self.offset
-
-
-################################################################################
-class RegBus:
-    def __init__(self, bus: Bus):
-        self.bus = bus
-
-    def read(self, reg:Register) -> int:
-
         self.check_transaction(address, length)
         data = self.bus.read(self.update_address(address), length)
         return data

@@ -11,3 +11,10 @@
 
 # ignore all python IDE files
 /.idea
+
+.venv/*
+
+*/tb/*
+
+
+*/__pycache__/*
