@@ -2,6 +2,7 @@ from enum import IntEnum
 from typing import List, Dict
 from abc import ABC
 from serial import Serial
+from collections import namedtuple
 
 
 ################################################################################
@@ -21,6 +22,10 @@ class AxiResponseError(Exception):
     def __init__(self):
         self.message = f'Transaction ended with AXI response error'
         super().__init__(self.message)
+
+
+################################################################################
+Register = namedtuple('Register', ['address', 'size', 'offset', 'writable', 'readable'])
 
 
 ################################################################################
@@ -81,6 +86,35 @@ class BasicBus(Bus):
         self.range = range
 
     def read(self, address: int, length: int) -> List[int]:
+        self.check_transaction(address, length)
+        data = self.bus.read(self.update_address(address), length)
+        return data
+
+    def write(self, address: int, data: List[int]) -> None:
+        self.check_transaction(address, len(data))
+        self.bus.write(self.update_address(address), data)
+
+    def read_i32(self, address: int) -> int:
+        return bytes2int(self.read(address, 4))
+
+    def write_i32(self, address: int, data: int) -> None:
+        self.write(address, int2bytes(data, 4))
+
+    def check_transaction(self, address: int, length: int) -> None:
+        if not 0 <= address and address + length < self.range:
+            raise AddressOutOfRangeException()
+
+    def update_address(self, address: int) -> int:
+        return address + self.offset
+
+
+################################################################################
+class RegBus:
+    def __init__(self, bus: Bus):
+        self.bus = bus
+
+    def read(self, reg:Register) -> int:
+
         self.check_transaction(address, length)
         data = self.bus.read(self.update_address(address), length)
         return data
@@ -261,6 +295,7 @@ class UartMaster(Bus):
         return resp_queue
 
     def write(self, address: int, data: List[int]) -> None:
+        # print(f'write: address: {hex(address)}, length: {len(data)}')
         pkt_queue = []
 
         offset = address % self.bytes_per_beat
@@ -284,6 +319,7 @@ class UartMaster(Bus):
             raise AxiResponseError()
 
     def read(self, address: int, length: int = 4) -> List[int]:
+        # print(f'read: address: {hex(address)}, length: {length}')
         pkt_queue = []
 
         offset = address % self.bytes_per_beat

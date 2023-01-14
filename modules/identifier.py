@@ -6,6 +6,15 @@ from .module import Module
 
 
 ################################################################################
+from enum import Enum
+# from collections import namedtuple
+#
+# Color = namedtuple('Color', ['value', 'displayString'])
+#
+# class Register:
+
+
+
 class Identifier(Module):
     class Registers(IntEnum):
         ModuleId = 0x00
