@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAEC282446E6568D5",
+      "boundary_crc": "0x8C89AEEB944A9EBA",
       "device": "xc7a35ticsg324-1L",
       "name": "core",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -24,11 +24,14 @@
       "axi_gpio_0": "",
       "clk_rst": {
         "proc_sys_reset_0": "",
-        "clk_wiz_0": ""
+        "clk_wiz_0": "",
+        "proc_sys_reset_1": ""
       },
       "identifier_0": "",
       "frequency_counter_0": "",
-      "clk_wiz_0": ""
+      "clk_wiz_0": "",
+      "frame_gen_wpr_0": "",
+      "vga_0": ""
     },
     "interface_ports": {
       "uart": {
@@ -81,6 +84,39 @@
             "direction": "I",
             "left": "3",
             "right": "0"
+          }
+        }
+      },
+      "vga": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:vga:1.0",
+        "vlnv": "xilinx.com:interface:vga_rtl:1.0",
+        "port_maps": {
+          "RED": {
+            "physical_name": "vga_red",
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "VSYNC": {
+            "physical_name": "vga_vsync",
+            "direction": "O"
+          },
+          "GREEN": {
+            "physical_name": "vga_green",
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "BLUE": {
+            "physical_name": "vga_blue",
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "HSYNC": {
+            "physical_name": "vga_hsync",
+            "direction": "O"
           }
         }
       }
@@ -836,6 +872,15 @@
           "sys_clock": {
             "type": "clk",
             "direction": "I"
+          },
+          "vga_rstn": {
+            "type": "rst",
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "vga_clk": {
+            "direction": "O"
           }
         },
         "components": {
@@ -851,8 +896,38 @@
             "xci_path": "ip\\core_clk_wiz_0_1\\core_clk_wiz_0_1.xci",
             "inst_hier_path": "clk_rst/clk_wiz_0",
             "parameters": {
+              "CLKOUT1_JITTER": {
+                "value": "130.958"
+              },
+              "CLKOUT1_PHASE_ERROR": {
+                "value": "98.575"
+              },
+              "CLKOUT2_JITTER": {
+                "value": "159.371"
+              },
+              "CLKOUT2_PHASE_ERROR": {
+                "value": "98.575"
+              },
+              "CLKOUT2_REQUESTED_OUT_FREQ": {
+                "value": "40"
+              },
+              "CLKOUT2_USED": {
+                "value": "true"
+              },
               "CLK_IN1_BOARD_INTERFACE": {
                 "value": "sys_clock"
+              },
+              "MMCM_CLKFBOUT_MULT_F": {
+                "value": "10.000"
+              },
+              "MMCM_CLKOUT0_DIVIDE_F": {
+                "value": "10.000"
+              },
+              "MMCM_CLKOUT1_DIVIDE": {
+                "value": "25"
+              },
+              "NUM_OUT_CLKS": {
+                "value": "2"
               },
               "RESET_BOARD_INTERFACE": {
                 "value": "reset"
@@ -870,6 +945,12 @@
                 "value": "true"
               }
             }
+          },
+          "proc_sys_reset_1": {
+            "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+            "xci_name": "core_proc_sys_reset_0_2",
+            "xci_path": "ip\\core_proc_sys_reset_0_2\\core_proc_sys_reset_0_2.xci",
+            "inst_hier_path": "clk_rst/proc_sys_reset_1"
           }
         },
         "nets": {
@@ -886,10 +967,18 @@
               "proc_sys_reset_0/slowest_sync_clk"
             ]
           },
+          "clk_wiz_0_clk_out2": {
+            "ports": [
+              "clk_wiz_0/clk_out2",
+              "proc_sys_reset_1/slowest_sync_clk",
+              "vga_clk"
+            ]
+          },
           "clk_wiz_0_locked": {
             "ports": [
               "clk_wiz_0/locked",
-              "proc_sys_reset_0/dcm_locked"
+              "proc_sys_reset_0/dcm_locked",
+              "proc_sys_reset_1/dcm_locked"
             ]
           },
           "proc_sys_reset_0_peripheral_aresetn": {
@@ -898,11 +987,18 @@
               "peripheral_aresetn"
             ]
           },
+          "proc_sys_reset_1_peripheral_aresetn": {
+            "ports": [
+              "proc_sys_reset_1/peripheral_aresetn",
+              "vga_rstn"
+            ]
+          },
           "reset_1": {
             "ports": [
               "reset",
               "proc_sys_reset_0/ext_reset_in",
-              "clk_wiz_0/resetn"
+              "clk_wiz_0/resetn",
+              "proc_sys_reset_1/ext_reset_in"
             ]
           },
           "sys_clock_1": {
@@ -956,6 +1052,9 @@
         "xci_path": "ip\\core_clk_wiz_0_2\\core_clk_wiz_0_2.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
+          "PRIM_SOURCE": {
+            "value": "Global_buffer"
+          },
           "USE_DYN_RECONFIG": {
             "value": "true"
           }
@@ -981,6 +1080,149 @@
             }
           }
         }
+      },
+      "frame_gen_wpr_0": {
+        "vlnv": "xilinx.com:module_ref:frame_gen_wpr:1.0",
+        "xci_name": "core_frame_gen_wpr_0_0",
+        "xci_path": "ip\\core_frame_gen_wpr_0_0\\core_frame_gen_wpr_0_0.xci",
+        "inst_hier_path": "frame_gen_wpr_0",
+        "parameters": {
+          "H_RES": {
+            "value": "800"
+          },
+          "V_RES": {
+            "value": "600"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "frame_gen_wpr",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "pix": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "TDATA_NUM_BYTES": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TUSER_WIDTH": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_TREADY": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TLAST": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "40000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_rst/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            },
+            "port_maps": {
+              "TDATA": {
+                "physical_name": "pix_tdata",
+                "direction": "O",
+                "left": "11",
+                "right": "0"
+              },
+              "TLAST": {
+                "physical_name": "pix_tlast",
+                "direction": "O"
+              },
+              "TUSER": {
+                "physical_name": "pix_tuser",
+                "direction": "O"
+              },
+              "TVALID": {
+                "physical_name": "pix_tvalid",
+                "direction": "O"
+              },
+              "TREADY": {
+                "physical_name": "pix_tready",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "aclk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_BUSIF": {
+                "value": "pix",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_RESET": {
+                "value": "aresetn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "40000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_rst/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "sof": {
+            "direction": "I"
+          }
+        }
+      },
+      "vga_0": {
+        "vlnv": "lvin:interfaces:vga:1.0",
+        "xci_name": "core_vga_0_0",
+        "xci_path": "ip\\core_vga_0_0\\core_vga_0_0.xci",
+        "inst_hier_path": "vga_0"
       }
     },
     "interface_nets": {
@@ -1026,10 +1268,22 @@
           "axi_gpio_0/S_AXI"
         ]
       },
+      "frame_gen_wpr_0_pix": {
+        "interface_ports": [
+          "frame_gen_wpr_0/pix",
+          "vga_0/pix"
+        ]
+      },
       "uart_to_axi4_master_0_m_axi": {
         "interface_ports": [
           "uart_to_axi4_master_0/m_axi",
           "axi_interconnect_0/S00_AXI"
+        ]
+      },
+      "vga_0_vga": {
+        "interface_ports": [
+          "vga",
+          "vga_0/vga"
         ]
       }
     },
@@ -1038,6 +1292,20 @@
         "ports": [
           "clk_rst/interconnect_aresetn",
           "axi_interconnect_0/ARESETN"
+        ]
+      },
+      "clk_rst_vga_clk": {
+        "ports": [
+          "clk_rst/vga_clk",
+          "frame_gen_wpr_0/aclk",
+          "vga_0/aclk"
+        ]
+      },
+      "clk_rst_vga_rstn": {
+        "ports": [
+          "clk_rst/vga_rstn",
+          "frame_gen_wpr_0/aresetn",
+          "vga_0/aresetn"
         ]
       },
       "clk_wiz_0_clk_out1": {
@@ -1088,6 +1356,12 @@
         "ports": [
           "sys_clock",
           "clk_rst/sys_clock"
+        ]
+      },
+      "vga_0_sof": {
+        "ports": [
+          "vga_0/sof",
+          "frame_gen_wpr_0/sof"
         ]
       }
     },
