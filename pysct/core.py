@@ -191,7 +191,7 @@ class Xsct:
         logger.debug('Sending message: %s ...', repr(msg))
         self._socket.sendall(msg)
 
-    def recv(self, bufsize=1024, timeout=None):
+    def recv(self, bufsize=8192, timeout=None):
         """Receives the answer from the server. Not recommended to use it natively. Use `do`
 
         :param bufsize:The maximum amount of data to be received at once is specified by bufsize.
