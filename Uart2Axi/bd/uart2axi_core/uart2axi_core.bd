@@ -759,7 +759,7 @@
             "value": "2"
           },
           "NAME": {
-            "value": "SerCom Demo"
+            "value": "Uart2Axi Demo"
           }
         },
         "interface_ports": {
