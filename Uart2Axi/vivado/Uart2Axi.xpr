@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="61" Path="E:/Documents/GitHub/IpDemonstrators/SerCom/vivado/SerCom.xpr">
+<Project Version="7" Minor="61" Path="E:/Documents/GitHub/IpDemonstrators/Uart2Axi/vivado/Uart2Axi.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="20a049bf84c6444688a348121962a320"/>
@@ -89,35 +89,35 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../bd/SerCom/SerCom.bd">
+      <File Path="$PPRDIR/../bd/uart2axi_core/uart2axi_core.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_xbar_0/SerCom_xbar_0.xci">
-          <Proxy FileSetName="SerCom_xbar_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_identifier_0/uart2axi_core_identifier_0.xci">
+          <Proxy FileSetName="uart2axi_core_identifier_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_auto_pc_0/SerCom_auto_pc_0.xci">
-          <Proxy FileSetName="SerCom_auto_pc_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_auto_pc_0/uart2axi_core_auto_pc_0.xci">
+          <Proxy FileSetName="uart2axi_core_auto_pc_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_axi_gpio_0_0/SerCom_axi_gpio_0_0.xci">
-          <Proxy FileSetName="SerCom_axi_gpio_0_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_uart_to_axi4_master_0/uart2axi_core_uart_to_axi4_master_0.xci">
+          <Proxy FileSetName="uart2axi_core_uart_to_axi4_master_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_identifier_0_0/SerCom_identifier_0_0.xci">
-          <Proxy FileSetName="SerCom_identifier_0_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_proc_sys_reset_0/uart2axi_core_proc_sys_reset_0.xci">
+          <Proxy FileSetName="uart2axi_core_proc_sys_reset_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_clk_wiz_0_0/SerCom_clk_wiz_0_0.xci">
-          <Proxy FileSetName="SerCom_clk_wiz_0_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_clk_wiz_0/uart2axi_core_clk_wiz_0.xci">
+          <Proxy FileSetName="uart2axi_core_clk_wiz_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_proc_sys_reset_0_0/SerCom_proc_sys_reset_0_0.xci">
-          <Proxy FileSetName="SerCom_proc_sys_reset_0_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_axi_gpio_0/uart2axi_core_axi_gpio_0.xci">
+          <Proxy FileSetName="uart2axi_core_axi_gpio_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="SerCom.bd" FileRelPathName="ip/SerCom_uart_to_axi4_master_0_0/SerCom_uart_to_axi4_master_0_0.xci">
-          <Proxy FileSetName="SerCom_uart_to_axi4_master_0_0"/>
+        <CompFileExtendedInfo CompFileName="uart2axi_core.bd" FileRelPathName="ip/uart2axi_core_xbar_0/uart2axi_core_xbar_0.xci">
+          <Proxy FileSetName="uart2axi_core_xbar_0"/>
         </CompFileExtendedInfo>
       </File>
-      <File Path="$PPRDIR/../bd/SerCom/hdl/SerCom_wrapper.v">
+      <File Path="$PPRDIR/../bd/uart2axi_core/hdl/uart2axi_core_wrapper.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -126,7 +126,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="SerCom_wrapper"/>
+        <Option Name="TopModule" Val="uart2axi_core_wrapper"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
       </Config>
@@ -147,7 +147,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="SerCom_wrapper"/>
+        <Option Name="TopModule" Val="uart2axi_core_wrapper"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
@@ -174,51 +174,51 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_uart_to_axi4_master_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_uart_to_axi4_master_0_0" RelGenDir="$PGENDIR/SerCom_uart_to_axi4_master_0_0">
+    <FileSet Name="uart2axi_core_identifier_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_identifier_0" RelGenDir="$PGENDIR/uart2axi_core_identifier_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_uart_to_axi4_master_0_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_identifier_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_clk_wiz_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_clk_wiz_0_0" RelGenDir="$PGENDIR/SerCom_clk_wiz_0_0">
+    <FileSet Name="uart2axi_core_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_auto_pc_0" RelGenDir="$PGENDIR/uart2axi_core_auto_pc_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_clk_wiz_0_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_auto_pc_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_proc_sys_reset_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_proc_sys_reset_0_0" RelGenDir="$PGENDIR/SerCom_proc_sys_reset_0_0">
+    <FileSet Name="uart2axi_core_uart_to_axi4_master_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_uart_to_axi4_master_0" RelGenDir="$PGENDIR/uart2axi_core_uart_to_axi4_master_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_proc_sys_reset_0_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_uart_to_axi4_master_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_identifier_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_identifier_0_0" RelGenDir="$PGENDIR/SerCom_identifier_0_0">
+    <FileSet Name="uart2axi_core_proc_sys_reset_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_proc_sys_reset_0" RelGenDir="$PGENDIR/uart2axi_core_proc_sys_reset_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_identifier_0_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_proc_sys_reset_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_xbar_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_xbar_0" RelGenDir="$PGENDIR/SerCom_xbar_0">
+    <FileSet Name="uart2axi_core_clk_wiz_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_clk_wiz_0" RelGenDir="$PGENDIR/uart2axi_core_clk_wiz_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_xbar_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_clk_wiz_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_auto_pc_0" RelGenDir="$PGENDIR/SerCom_auto_pc_0">
+    <FileSet Name="uart2axi_core_axi_gpio_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_axi_gpio_0" RelGenDir="$PGENDIR/uart2axi_core_axi_gpio_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_auto_pc_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_axi_gpio_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="SerCom_axi_gpio_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/SerCom_axi_gpio_0_0" RelGenDir="$PGENDIR/SerCom_axi_gpio_0_0">
+    <FileSet Name="uart2axi_core_xbar_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart2axi_core_xbar_0" RelGenDir="$PGENDIR/uart2axi_core_xbar_0">
       <Config>
-        <Option Name="TopModule" Val="SerCom_axi_gpio_0_0"/>
+        <Option Name="TopModule" Val="uart2axi_core_xbar_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
@@ -253,37 +253,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_uart_to_axi4_master_0_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_uart_to_axi4_master_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_uart_to_axi4_master_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_uart_to_axi4_master_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_uart_to_axi4_master_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_uart_to_axi4_master_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="SerCom_clk_wiz_0_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_clk_wiz_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_clk_wiz_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_clk_wiz_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_clk_wiz_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_clk_wiz_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="SerCom_proc_sys_reset_0_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_proc_sys_reset_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_proc_sys_reset_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_proc_sys_reset_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_proc_sys_reset_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_proc_sys_reset_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="SerCom_identifier_0_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_identifier_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_identifier_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_identifier_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_identifier_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_identifier_0_0_synth_1">
+    <Run Id="uart2axi_core_identifier_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_identifier_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_identifier_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_identifier_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_identifier_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_identifier_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -295,7 +265,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_xbar_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_xbar_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_xbar_0_synth_1">
+    <Run Id="uart2axi_core_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_auto_pc_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_auto_pc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_auto_pc_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_auto_pc_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_auto_pc_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -307,7 +277,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_auto_pc_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_auto_pc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_auto_pc_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_auto_pc_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_auto_pc_0_synth_1">
+    <Run Id="uart2axi_core_uart_to_axi4_master_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_uart_to_axi4_master_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_uart_to_axi4_master_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_uart_to_axi4_master_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_uart_to_axi4_master_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_uart_to_axi4_master_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -319,7 +289,43 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_axi_gpio_0_0_synth_1" Type="Ft3:Synth" SrcSet="SerCom_axi_gpio_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_axi_gpio_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/SerCom_axi_gpio_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_axi_gpio_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_axi_gpio_0_0_synth_1">
+    <Run Id="uart2axi_core_proc_sys_reset_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_proc_sys_reset_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_proc_sys_reset_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_proc_sys_reset_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_proc_sys_reset_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_proc_sys_reset_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="uart2axi_core_clk_wiz_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_clk_wiz_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_clk_wiz_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_clk_wiz_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_clk_wiz_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_clk_wiz_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="uart2axi_core_axi_gpio_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_axi_gpio_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_axi_gpio_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_axi_gpio_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_axi_gpio_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_axi_gpio_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="uart2axi_core_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="uart2axi_core_xbar_0" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart2axi_core_xbar_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_xbar_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -349,58 +355,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_uart_to_axi4_master_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_uart_to_axi4_master_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_uart_to_axi4_master_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_uart_to_axi4_master_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_uart_to_axi4_master_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="SerCom_clk_wiz_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_clk_wiz_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_clk_wiz_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_clk_wiz_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_clk_wiz_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="SerCom_proc_sys_reset_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_proc_sys_reset_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_proc_sys_reset_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_proc_sys_reset_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_proc_sys_reset_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="SerCom_identifier_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_identifier_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_identifier_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_identifier_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_identifier_0_0_impl_1">
+    <Run Id="uart2axi_core_identifier_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_identifier_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_identifier_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_identifier_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_identifier_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>
@@ -419,7 +374,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_xbar_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_xbar_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_xbar_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_xbar_0_impl_1">
+    <Run Id="uart2axi_core_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_auto_pc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_auto_pc_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_auto_pc_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_auto_pc_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>
@@ -438,7 +393,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_auto_pc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_auto_pc_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_auto_pc_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_auto_pc_0_impl_1">
+    <Run Id="uart2axi_core_uart_to_axi4_master_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_uart_to_axi4_master_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_uart_to_axi4_master_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_uart_to_axi4_master_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_uart_to_axi4_master_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>
@@ -457,7 +412,64 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="SerCom_axi_gpio_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="SerCom_axi_gpio_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="SerCom_axi_gpio_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/SerCom_axi_gpio_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/SerCom_axi_gpio_0_0_impl_1">
+    <Run Id="uart2axi_core_proc_sys_reset_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_proc_sys_reset_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_proc_sys_reset_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_proc_sys_reset_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_proc_sys_reset_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="uart2axi_core_clk_wiz_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_clk_wiz_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_clk_wiz_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_clk_wiz_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_clk_wiz_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="uart2axi_core_axi_gpio_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_axi_gpio_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_axi_gpio_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_axi_gpio_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_axi_gpio_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="uart2axi_core_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="uart2axi_core_xbar_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart2axi_core_xbar_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart2axi_core_xbar_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart2axi_core_xbar_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
           <Desc>Default settings for Implementation.</Desc>

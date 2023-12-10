@@ -3,7 +3,7 @@
     "design_info": {
       "boundary_crc": "0x67C666845B2254A3",
       "device": "xc7a35ticsg324-1L",
-      "name": "SerCom",
+      "name": "uart2axi_core",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2022.2",
@@ -31,6 +31,11 @@
         "mode": "MirroredMaster",
         "vlnv_bus_definition": "xilinx.com:interface:uart:1.0",
         "vlnv": "xilinx.com:interface:uart_rtl:1.0",
+        "hdl_attributes": {
+          "LOCKED": {
+            "value": "TRUE"
+          }
+        },
         "port_maps": {
           "TxD": {
             "physical_name": "uart_txd",
@@ -46,6 +51,11 @@
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
+        "hdl_attributes": {
+          "LOCKED": {
+            "value": "TRUE"
+          }
+        },
         "port_maps": {
           "TRI_I": {
             "physical_name": "led_4bits_tri_i",
@@ -71,6 +81,11 @@
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
+        "hdl_attributes": {
+          "LOCKED": {
+            "value": "TRUE"
+          }
+        },
         "port_maps": {
           "TRI_I": {
             "physical_name": "dip_switches_4bits_tri_i",
@@ -87,7 +102,7 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "SerCom_sys_clock",
+            "value": "uart2axi_core_sys_clock",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -118,13 +133,39 @@
             "value": "ACTIVE_LOW"
           }
         }
+      },
+      "uart_txd": {
+        "direction": "I"
+      },
+      "uart_rxd": {
+        "direction": "O"
+      },
+      "led_4bits_tri_i": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "led_4bits_tri_o": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "led_4bits_tri_t": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "dip_switches_4bits_tri_i": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
       }
     },
     "components": {
       "uart_to_axi4_master": {
         "vlnv": "lvin:interfaces:uart_to_axi4_master:1.0",
-        "xci_name": "SerCom_uart_to_axi4_master_0_0",
-        "xci_path": "ip\\SerCom_uart_to_axi4_master_0_0\\SerCom_uart_to_axi4_master_0_0.xci",
+        "xci_name": "uart2axi_core_uart_to_axi4_master_0",
+        "xci_path": "ip\\uart2axi_core_uart_to_axi4_master_0\\uart2axi_core_uart_to_axi4_master_0.xci",
         "inst_hier_path": "uart_to_axi4_master",
         "parameters": {
           "BAUD_RATE": {
@@ -157,9 +198,9 @@
       },
       "axi_interconnect": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
-        "xci_path": "ip\\SerCom_axi_interconnect_0_0\\SerCom_axi_interconnect_0_0.xci",
+        "xci_path": "ip\\uart2axi_core_axi_interconnect_0\\uart2axi_core_axi_interconnect_0.xci",
         "inst_hier_path": "axi_interconnect",
-        "xci_name": "SerCom_axi_interconnect_0_0",
+        "xci_name": "uart2axi_core_axi_interconnect_0",
         "parameters": {
           "NUM_MI": {
             "value": "2"
@@ -251,8 +292,8 @@
         "components": {
           "xbar": {
             "vlnv": "xilinx.com:ip:axi_crossbar:2.1",
-            "xci_name": "SerCom_xbar_0",
-            "xci_path": "ip\\SerCom_xbar_0\\SerCom_xbar_0.xci",
+            "xci_name": "uart2axi_core_xbar_0",
+            "xci_path": "ip\\uart2axi_core_xbar_0\\uart2axi_core_xbar_0.xci",
             "inst_hier_path": "axi_interconnect/xbar",
             "parameters": {
               "NUM_MI": {
@@ -326,8 +367,8 @@
             "components": {
               "auto_pc": {
                 "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
-                "xci_name": "SerCom_auto_pc_0",
-                "xci_path": "ip\\SerCom_auto_pc_0\\SerCom_auto_pc_0.xci",
+                "xci_name": "uart2axi_core_auto_pc_0",
+                "xci_path": "ip\\uart2axi_core_auto_pc_0\\uart2axi_core_auto_pc_0.xci",
                 "inst_hier_path": "axi_interconnect/s00_couplers/auto_pc",
                 "parameters": {
                   "MI_PROTOCOL": {
@@ -587,8 +628,8 @@
       },
       "identifier": {
         "vlnv": "lvin:versioning:identifier:1.0",
-        "xci_name": "SerCom_identifier_0_0",
-        "xci_path": "ip\\SerCom_identifier_0_0\\SerCom_identifier_0_0.xci",
+        "xci_name": "uart2axi_core_identifier_0",
+        "xci_path": "ip\\uart2axi_core_identifier_0\\uart2axi_core_identifier_0.xci",
         "inst_hier_path": "identifier",
         "parameters": {
           "MAJOR_VERSION": {
@@ -639,8 +680,8 @@
         "components": {
           "clk_wiz": {
             "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-            "xci_name": "SerCom_clk_wiz_0_0",
-            "xci_path": "ip\\SerCom_clk_wiz_0_0\\SerCom_clk_wiz_0_0.xci",
+            "xci_name": "uart2axi_core_clk_wiz_0",
+            "xci_path": "ip\\uart2axi_core_clk_wiz_0\\uart2axi_core_clk_wiz_0.xci",
             "inst_hier_path": "clk_rst/clk_wiz",
             "parameters": {
               "CLK_IN1_BOARD_INTERFACE": {
@@ -665,8 +706,8 @@
           },
           "proc_sys_reset": {
             "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
-            "xci_name": "SerCom_proc_sys_reset_0_0",
-            "xci_path": "ip\\SerCom_proc_sys_reset_0_0\\SerCom_proc_sys_reset_0_0.xci",
+            "xci_name": "uart2axi_core_proc_sys_reset_0",
+            "xci_path": "ip\\uart2axi_core_proc_sys_reset_0\\uart2axi_core_proc_sys_reset_0.xci",
             "inst_hier_path": "clk_rst/proc_sys_reset"
           }
         },
@@ -713,8 +754,8 @@
       },
       "axi_gpio": {
         "vlnv": "xilinx.com:ip:axi_gpio:2.0",
-        "xci_name": "SerCom_axi_gpio_0_0",
-        "xci_path": "ip\\SerCom_axi_gpio_0_0\\SerCom_axi_gpio_0_0.xci",
+        "xci_name": "uart2axi_core_axi_gpio_0",
+        "xci_path": "ip\\uart2axi_core_axi_gpio_0\\uart2axi_core_axi_gpio_0.xci",
         "inst_hier_path": "axi_gpio",
         "parameters": {
           "GPIO2_BOARD_INTERFACE": {
