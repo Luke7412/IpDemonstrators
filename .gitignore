@@ -4,6 +4,7 @@
 # ignore all bd sources except .bd file itself
 */bd/*/*
 !*/bd/*/*.bd
+!*/bd/*.tcl
 
 # ignore all vivado folders except vivado project
 */vivado/*
