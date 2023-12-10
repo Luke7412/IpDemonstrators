@@ -10,12 +10,10 @@
 */vivado/*
 !*/vivado/*.xpr
 
-# ignore all python IDE files
-/.idea
-
-.venv/*
-
+# ignore all testbenches
 */tb/*
 
-
+# ignore all python IDE files
+/.idea
+/.venv
 */__pycache__/*
