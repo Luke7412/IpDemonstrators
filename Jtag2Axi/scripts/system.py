@@ -32,11 +32,11 @@ class CustomGpio:
 
 class System:
     def __init__(self, xsct):
-        self.bus_axi = Jtag2Axi(xsct)
+        bus_axi = Jtag2Axi(xsct)
 
-        bus_identifier = BasicBus(self.bus_axi, offset=0x4000_0000, range=12)
-        bus_gpio = BasicBus(self.bus_axi, offset=0x4000_1000, range=12)
-        bus_bram = BasicBus(self.bus_axi, offset=0x4000_2000, range=12)
+        bus_identifier = BasicBus(bus_axi, offset=0x4000_0000, range=12)
+        bus_gpio = BasicBus(bus_axi, offset=0x4000_1000, range=12)
+        bus_bram = BasicBus(bus_axi, offset=0x4000_2000, range=12)
 
         self.identifier = Identifier(bus_identifier)
         self.gpio = CustomGpio(bus_gpio)
@@ -63,8 +63,8 @@ def main():
     print()
     print('GPIO')
     system.gpio.set_leds(15)
-    print(f'Leds: {system.gpio.get_leds()}')
-    print(f'Switches: {system.gpio.get_switches()}')
+    print(f'\tLeds: {system.gpio.get_leds()}')
+    print(f'\tSwitches: {system.gpio.get_switches()}')
 
     # BRAM
     print()

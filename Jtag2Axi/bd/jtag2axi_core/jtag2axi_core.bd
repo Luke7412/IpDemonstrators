@@ -803,8 +803,11 @@
         "xci_path": "ip\\jtag2axi_core_identifier_0\\jtag2axi_core_identifier_0.xci",
         "inst_hier_path": "identifier",
         "parameters": {
+          "MINOR_VERSION": {
+            "value": "1"
+          },
           "NAME": {
-            "value": "JtagCom"
+            "value": "Jtag2Axi Demo"
           }
         },
         "interface_ports": {
