@@ -1,15 +1,11 @@
-from modules.axi import UartMaster, BasicBus
-from modules.axi_gpio import AxiGpio
-from modules.axi_regbank import AxiRegbank
-from modules.clk_wizard import ClkWizard
-from modules.frequency_counter import FrequencyCounter
-from modules.identifier import Identifier
+from fpga_modules import AxiGpio, AxiRegbank, BasicBus, ClkWizard, FrequencyCounter, Identifier, Uart2Axi
 
 
 ################################################################################
 class System:
     def __init__(self, port):
-        bus_axi = UartMaster(port, 1000000)
+        bus_axi = Uart2Axi(port, 1000000)
+
         bus_identifier = BasicBus(bus_axi, offset=0x4000_0000, range=12)
         bus_freq_cnt = BasicBus(bus_axi, offset=0x4000_1000, range=12)
         bus_gpio = BasicBus(bus_axi, offset=0x4000_2000, range=12)

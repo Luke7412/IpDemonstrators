@@ -13,7 +13,7 @@ import signal
 import psutil
 import re
 
-# Import 3th party modules:
+# Import 3th party fpga_modules:
 #  - wexpect/pexpect to launch ant interact with subprocesses.
 if platform.system() == 'Windows':
     import wexpect as expect

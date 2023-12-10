@@ -16,4 +16,5 @@
 # ignore all python IDE files
 /.idea
 /.venv
-*/__pycache__/*
+
+**/__pycache__/

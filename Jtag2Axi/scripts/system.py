@@ -1,11 +1,7 @@
-from modules.axi import BasicBus, Bus
-from modules.axi_gpio import AxiGpio
-from modules.bram import BRAM
-from modules.identifier import Identifier
-from modules.jtag2axi import Jtag2Axi
+from fpga_modules import BasicBus, Bus, AxiGpio, BRAM, Identifier, Jtag2Axi
 
-from pysct.core import *
 from time import perf_counter
+from pysct.core import *
 
 
 ################################################################################
@@ -69,7 +65,7 @@ def main():
     # BRAM
     print()
     print('BRAM Performance')
-    repeats = 200
+    repeats = 20
     sizes = [2**x for x in range(2, 11)]
     points = []
 

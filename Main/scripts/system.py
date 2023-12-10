@@ -1,10 +1,4 @@
-from modules.axi import BasicBus, Bus
-from modules.axi_gpio import AxiGpio
-from modules.axi_regbank import AxiRegbank
-from modules.clk_wizard import ClkWizard
-from modules.frequency_counter import FrequencyCounter
-from modules.identifier import Identifier
-from modules.uart2axi import Uart2Axi
+from fpga_modules import AxiGpio, AxiRegbank, BasicBus, Bus, ClkWizard, FrequencyCounter, Identifier, Uart2Axi
 
 
 ################################################################################

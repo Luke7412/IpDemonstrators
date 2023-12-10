@@ -1,7 +1,7 @@
 from typing import List, Dict
 from abc import ABC
 
-from modules.utils import bytes2int, int2bytes
+from .utils import bytes2int, int2bytes
 
 
 ################################################################################

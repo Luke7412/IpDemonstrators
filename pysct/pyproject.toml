@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "pysct"
+version = "0.0.1"
+authors = [
+  { name="Lukas Vinkx", email="" },
+]
+description = "API to xilinx xsdb"
+readme = "README.md"
+
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]

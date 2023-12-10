@@ -1,10 +1,6 @@
-from time import perf_counter
+from fpga_modules import BasicBus, Bus, AxiGpio, BRAM, Identifier, Uart2Axi
 
-from modules.axi import BasicBus, Bus
-from modules.axi_gpio import AxiGpio
-from modules.bram import BRAM
-from modules.identifier import Identifier
-from modules.uart2axi import Uart2Axi
+from time import perf_counter
 
 
 ################################################################################

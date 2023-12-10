@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "fpga_modules"
+version = "0.0.1"
+authors = [
+  { name="Lukas Vinkx", email="" },
+]
+description = "A set of drivers for fpga modules"
+readme = "README.md"
+
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+]

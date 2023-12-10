@@ -2,8 +2,8 @@ from enum import IntEnum
 from typing import List
 from serial import Serial
 
-from modules.axi import Bus, ResponsePacketException, AxiResponseError
-from modules.utils import int2bytes, bytes2int
+from .axi import Bus, ResponsePacketException, AxiResponseError
+from .utils import int2bytes, bytes2int
 
 
 ################################################################################

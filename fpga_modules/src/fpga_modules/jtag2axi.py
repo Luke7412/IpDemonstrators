@@ -1,8 +1,8 @@
 from typing import List
 from pysct.core import *
 
-from modules.axi import Bus
-from modules.utils import bytes2int
+from .axi import Bus
+from .utils import bytes2int
 
 
 ################################################################################

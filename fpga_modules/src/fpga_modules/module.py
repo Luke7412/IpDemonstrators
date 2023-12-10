@@ -1,8 +1,7 @@
-
 from abc import ABC, abstractmethod
-
-from modules.axi import Bus
 from enum import IntEnum
+
+from .axi import Bus
 
 
 ################################################################################
