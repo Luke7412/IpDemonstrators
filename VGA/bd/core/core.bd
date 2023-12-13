@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB2251B5036E7DC74",
+      "boundary_crc": "0xB2251B50A62A904C",
       "device": "xc7a35ticsg324-1L",
       "name": "core",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -97,7 +97,7 @@
             "value_src": "ip_prop"
           },
           "FREQ_HZ": {
-            "value": "40000000",
+            "value": "100000000",
             "value_src": "ip_prop"
           },
           "FREQ_TOLERANCE_HZ": {
@@ -941,6 +941,11 @@
         "xci_name": "core_uart2axi_0_0",
         "xci_path": "ip\\core_uart2axi_0_0\\core_uart2axi_0_0.xci",
         "inst_hier_path": "uart2axi",
+        "parameters": {
+          "BAUD_RATE": {
+            "value": "1000000"
+          }
+        },
         "interface_ports": {
           "m_axi": {
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
@@ -1015,16 +1020,16 @@
             "inst_hier_path": "clk_reset/clk_wiz",
             "parameters": {
               "CLKOUT1_JITTER": {
-                "value": "159.371"
+                "value": "130.958"
               },
               "CLKOUT1_REQUESTED_OUT_FREQ": {
-                "value": "40"
+                "value": "100"
               },
               "CLK_IN1_BOARD_INTERFACE": {
                 "value": "sys_clock"
               },
               "MMCM_CLKOUT0_DIVIDE_F": {
-                "value": "25.000"
+                "value": "10.000"
               },
               "RESET_BOARD_INTERFACE": {
                 "value": "reset"
@@ -1139,7 +1144,7 @@
             "inst_hier_path": "clk_reset_vga/clk_wiz_vga",
             "parameters": {
               "CLKOUT1_JITTER": {
-                "value": "232.099"
+                "value": "159.371"
               },
               "CLKOUT1_REQUESTED_OUT_FREQ": {
                 "value": "40"
@@ -1374,7 +1379,7 @@
               "SEG_clk_wiz_vga_Reg": {
                 "address_block": "/clk_reset_vga/clk_wiz_vga/s_axi_lite/Reg",
                 "offset": "0x40002000",
-                "range": "8K"
+                "range": "4K"
               },
               "SEG_identifier_reg0": {
                 "address_block": "/identifier/ctrl/reg0",
@@ -1383,8 +1388,8 @@
               },
               "SEG_v_tpg_Reg": {
                 "address_block": "/v_tpg/s_axi_CTRL/Reg",
-                "offset": "0x40010000",
-                "range": "64K",
+                "offset": "0x40003000",
+                "range": "4K",
                 "offset_base_param": "C_S_AXI_CTRL_BASEADDR",
                 "offset_high_param": "C_S_AXI_CTRL_HIGHADDR"
               },
