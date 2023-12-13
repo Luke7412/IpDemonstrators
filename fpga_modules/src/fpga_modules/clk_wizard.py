@@ -1,8 +1,8 @@
 from enum import IntEnum
-from .module import Module
-
 from dataclasses import dataclass
 from math import ceil, floor
+
+from .module import Module
 
 
 ################################################################################
