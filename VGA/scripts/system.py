@@ -1,4 +1,4 @@
-from fpga_modules import AxiGpio, AxiRegbank, BasicBus, ClkWizard, FrequencyCounter, Identifier, Uart2Axi
+from fpga_modules import AxiGpio, AxiRegbank, BasicBus, ClkWizard, FrequencyCounter, Identifier, Uart2Axi, VGA
 
 
 ################################################################################
@@ -7,16 +7,14 @@ class System:
         bus_axi = Uart2Axi(port, 1000000)
 
         bus_identifier = BasicBus(bus_axi, offset=0x4000_0000, range=12)
-        bus_freq_cnt = BasicBus(bus_axi, offset=0x4000_1000, range=12)
-        bus_gpio = BasicBus(bus_axi, offset=0x4000_2000, range=12)
-        bus_regbank = BasicBus(bus_axi, offset=0x4000_3000, range=16)
-        bus_clk_wiz = BasicBus(bus_axi, offset=0x4001_0000, range=16)
+        bus_vga = BasicBus(bus_axi, offset=0x4000_1000, range=12)
+        bus_clk_wiz = BasicBus(bus_axi, offset=0x4000_2000, range=13)
+        bus_video_tpg = BasicBus(bus_axi, offset=0x4001_0000, range=16)
 
         self.identifier = Identifier(bus_identifier)
-        self.freq_counter = FrequencyCounter(bus_freq_cnt)
-        self.gpio = AxiGpio(bus_gpio)
-        self.regbank = AxiRegbank(bus_regbank)
+        self.vga = VGA(bus_vga)
         self.clk_wiz = ClkWizard(bus_clk_wiz, 'MMCM', 'Artix7', '1.00v-1')
+        # self.video_tpg = VideoTPG(bus_video_tpg)
 
 
 ################################################################################
