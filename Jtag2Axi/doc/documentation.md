@@ -3,4 +3,10 @@
 
 ## Block Diagram
 
-![bd](figs/bd.svg)
+![block diagram](figs/bd.svg)
+
+
+## Address Map
+
+![address map](figs/addr_map.svg)
+
