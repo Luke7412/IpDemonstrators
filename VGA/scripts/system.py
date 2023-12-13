@@ -1,4 +1,4 @@
-from fpga_modules import AxiGpio, AxiRegbank, BasicBus, ClkWizard, FrequencyCounter, Identifier, Uart2Axi, VGA
+from fpga_modules import BasicBus, ClkWizard, Identifier, Uart2Axi, VGA, VideoTPG
 
 
 ################################################################################
@@ -14,7 +14,7 @@ class System:
         self.identifier = Identifier(bus_identifier)
         self.vga = VGA(bus_vga)
         self.clk_wiz = ClkWizard(bus_clk_wiz, 'MMCM', 'Artix7', '1.00v-1')
-        # self.video_tpg = VideoTPG(bus_video_tpg)
+        self.video_tpg = VideoTPG(bus_video_tpg)
 
 
 ################################################################################
@@ -26,9 +26,7 @@ def main():
     print(f'\tName: {system.identifier.get_name()}')
     print('\tVersion: v%d.%d' % system.identifier.get_version())
     print()
-    print("Frequency Counter:")
-    print(f'\tID: {hex(system.freq_counter.get_module_id())}')
-    print(f'\tFreq: {system.freq_counter.get_frequency()}')
+
 
     mode = "1280x1024p60"
 

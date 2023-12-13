@@ -97,16 +97,16 @@ vga_configs = {
 
 class VGA(Module):
     class Registers(IntEnum):
-      ModuleId = 0x000
-      enable = 0x004
-      h_res = 0x010
-      h_front_porch = 0x014
-      h_sync_pulse = 0x018
-      h_back_porch = 0x01C
-      v_res = 0x020
-      v_front_porch = 0x024
-      v_sync_pulse = 0x028
-      v_back_porch = 0x02C
+        ModuleId      = 0x000
+        enable        = 0x004
+        h_res         = 0x010
+        h_front_porch = 0x014
+        h_sync_pulse  = 0x018
+        h_back_porch  = 0x01C
+        v_res         = 0x020
+        v_front_porch = 0x024
+        v_sync_pulse  = 0x028
+        v_back_porch  = 0x02C
 
     def __init__(self, bus: Bus):
         super().__init__(bus)
@@ -114,10 +114,10 @@ class VGA(Module):
     def get_module_id(self) -> int:
         return self.bus.read_i32(self.Registers.ModuleId)
 
-    def enable(self, div) -> None:
+    def enable(self) -> None:
         self.bus.write_i32(self.Registers.enable, 1)
 
-    def disable(self, div) -> None:
+    def disable(self) -> None:
         self.bus.write_i32(self.Registers.enable, 0)
 
     def set_config(self, name:str):

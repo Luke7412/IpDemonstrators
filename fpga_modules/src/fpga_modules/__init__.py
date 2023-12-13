@@ -9,3 +9,4 @@ from .identifier import Identifier
 from .jtag2axi import Jtag2Axi
 from .uart2axi import Uart2Axi
 from .vga import VGA
+from .video_tpg import VideoTGP
